@@ -1,0 +1,13 @@
+Package: spatialClust
+Type: Package
+Title: Spatial Clustering using Fuzzy Geographically Weigthed Clustering
+Version: 0.1.0
+Author:  Imam Habib Pamungkas <imamhabibpamungkas@gmail.com>
+Maintainer: Imam Habib Pamungkas <imamhabibpamungkas@gmail.com>
+Description: Perform Spatial Clustering Analysis using Fuzzy Gegraphically Weighted Clustering
+Depends: R (>= 2.14.0)
+License: GPL-2
+LazyData: TRUE
+RoxygenNote: 5.0.1
+import:
+  rgdal (>= 1.1-10)
