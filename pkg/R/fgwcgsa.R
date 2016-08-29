@@ -46,12 +46,14 @@ fgwc.gsa<- function(X,population,distance,K=2,m=2,beta=0.5,a=1,b=1,max.iteration
   n <- nrow(data.X)
   p <- ncol(data.X)
   alfa <- 1- beta
+  map <- NULL
 
   if(is.matrix(distance)){
     distance <- as.matrix(distance)
   }else{
     library(rgeos)
     centroid <- gCentroid(distance,byid = T)
+    map <- distance
     distance <- as.matrix(spDists(centroid, longlat=T))
   }
 
@@ -292,6 +294,7 @@ fgwc.gsa<- function(X,population,distance,K=2,m=2,beta=0.5,a=1,b=1,max.iteration
   result$call<-match.call()
   result$Clust.desc <- Clust.desc
   class(result)<-"fgwc-gsa"
-  print(result)
+  print(result$U)
+  result$map <- map
   return(result)
 }
