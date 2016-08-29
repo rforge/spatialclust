@@ -9,6 +9,8 @@
 #' @param K specific number of cluster (must be >1)
 #' @param m fuzzifier / degree of fuzziness
 #' @param beta proportion of geographically effect (if 0 equal Fuzzy C-Means)
+#' @param a power for increase population effect
+#' @param b power for increase distance effect
 #' @param max.iteration maximum iteration to convergence
 #' @param threshold threshold of convergence
 #' @param RandomNumber specific seed
