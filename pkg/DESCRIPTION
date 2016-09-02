@@ -2,15 +2,11 @@ Package: spatialClust
 Type: Package
 Title: Spatial Clustering using Fuzzy Geographically Weighted Clustering
 Version: 1.1.1
-Author:  Imam Habib Pamungkas <imamhabibpamungkas@gmail.com>
+Author:  Imam Habib Pamungkas and Setia Pramana
 Maintainer: Imam Habib Pamungkas <imamhabibpamungkas@gmail.com>
-Description: Perform Spatial Clustering Analysis using Fuzzy Geographically Weighted Clustering. And optimization using Gravitational Search Algorithm
+Description: Perform Spatial Clustering Analysis using Fuzzy Geographically Weighted Clustering. Provide optimization using Gravitational Search Algorithm
 Depends: R (>= 3.1)
 License: GPL-2
 LazyData: TRUE
 RoxygenNote: 5.0.1
-Suggests:
-  rgeos (>= 0.3-19),
-  sp (>= 1.1-0),
-  ggplot2 (>= 2.1.0),
-  maptools (>= 0.8-39)
+Depends: rgeos (>= 0.3-15), sp (>= 1.1-0), ggplot2 (>= 2.0.0), maptools (>= 0.8-37), R(>= 2.10.0)

@@ -2,6 +2,10 @@
 
 export(fgwc)
 export(fgwc.gsa)
-export(fuzzy.CM)
+export(scale)
 export(spClustIndex)
 export(visualize)
+import(ggplot2)
+import(maptools)
+import(rgeos)
+import(sp)

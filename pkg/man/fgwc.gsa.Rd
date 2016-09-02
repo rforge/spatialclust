@@ -46,9 +46,9 @@ This function used to perform Fuzzy Geographically Weighted Clustering of X data
 by using this function the initialization phase of FGWC will be optimized using Gravitational Search Algorithm
 }
 \details{
-This function perform Fuzzy Geographically Weighted Clustering by G.A Mason and R.Jacobson (2007).
-Fuzzy Geographically Weighted Clustering is one of fuzzy clustering methods to clustering dataset
-become K cluster. Number of cluster (K) must be greater than 1. To control the overlaping
+This function perform Fuzzy Geographically Weighted Clustering optimized using Gravitational Search Algorithm(GSA).
+using this method the initilitation phase will be handle by GSA to get optimal result.
+Number of cluster (K) must be greater than 1. To control the overlaping
 or fuzziness of clustering, parameter m must be specified.
 Maximum iteration and threshold is specific number for convergencing the cluster.
 Random Number is number that will be used for seeding to firstly generate fuzzy membership matrix.
@@ -60,9 +60,34 @@ Centroid or cluster center can be use to interpret the cluster. Both membership 
 calculating mathematical distance. Fuzzy Geographically Weighted Clustering calculate distance with Euclideans norm. So it can be said that cluster
 will have sperichal shape of geometry.
 }
+\examples{
+#load data example
+X <- example
+
+#if using matrix distance
+distance <- dist
+
+#if using shapefile
+#library(rgdal) for call readOGR
+#distance <- readOGR(dsn = 'folder/.',"shapefile name")
+
+#load population data
+pop <- population
+
+clust <- fgwc(X,pop,distance,K=2,m=1.5,beta=0.5)
+
+}
 \references{
 G. A. Mason and R. D. Jacobson.(2007). Fuzzy Geographically Weighted Clustering, in Proceedings of the 9th International Conference on Geocomputation, no. 1998, pp. 1-7
 
 Bezdek, J. C., Ehrlich, R., & Full, W. (1984). FCM: The Fuzzy C-Means Clustering Algorithm. Computers and Geosciences Vol 10, 191-203
+
+Rashedi, E., Nezamabadi-pour, H., & S. Saryazdi. (2009). GSA: A Gravitational Search Algorithm. Information Sciences, vol. 179, no. 13, pp. 2232-224
+}
+\seealso{
+\code{\link{fgwc}} for standard Fuzzy Geographically Weighted Clustering,
+\code{\link{spClustIndex}} for cluser validation,
+\code{\link{visualize}} for cluster visualizatiion,
+\code{\link{scale}} for data scalling
 }
 

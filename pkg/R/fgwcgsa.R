@@ -21,22 +21,46 @@
 #' @return D matrix n x K consist distance of data to centroid that calculated
 #' @return Clust.desc cluster description (dataset with additional column of cluster label)
 #'
-#' @details This function perform Fuzzy Geographically Weighted Clustering by G.A Mason and R.Jacobson (2007).
-#' Fuzzy Geographically Weighted Clustering is one of fuzzy clustering methods to clustering dataset
-#' become K cluster. Number of cluster (K) must be greater than 1. To control the overlaping
+#' @examples
+#' #load data example
+#' X <- example
+#'
+#' #if using matrix distance
+#' distance <- dist
+#'
+#' #if using shapefile
+#' #library(rgdal) for call readOGR
+#' #distance <- readOGR(dsn = 'folder/.',"shapefile name")
+#'
+#' #load population data
+#' pop <- population
+#'
+#' clust <- fgwc(X,pop,distance,K=2,m=1.5,beta=0.5)
+#'
+#' @details This function perform Fuzzy Geographically Weighted Clustering optimized using Gravitational Search Algorithm(GSA).
+#' using this method the initilitation phase will be handle by GSA to get optimal result.
+#' Number of cluster (K) must be greater than 1. To control the overlaping
 #' or fuzziness of clustering, parameter m must be specified.
 #' Maximum iteration and threshold is specific number for convergencing the cluster.
 #' Random Number is number that will be used for seeding to firstly generate fuzzy membership matrix.
 #' population dataset, shapefile or distance matrix is used to give geographically weighted for membership matrix.
+#'
 #' @details Clustering will produce fuzzy membership matrix (U) and fuzzy cluster centroid (V).
 #' The greatest value of membership on data point will determine cluster label.
 #' Centroid or cluster center can be use to interpret the cluster. Both membership and centroid produced by
 #' calculating mathematical distance. Fuzzy Geographically Weighted Clustering calculate distance with Euclideans norm. So it can be said that cluster
 #' will have sperichal shape of geometry.
 #'
+#' @seealso \code{\link{fgwc}} for standard Fuzzy Geographically Weighted Clustering,
+#' \code{\link{spClustIndex}} for cluser validation,
+#' \code{\link{visualize}} for cluster visualizatiion,
+#' \code{\link{scale}} for data scalling
+#'
 #' @references G. A. Mason and R. D. Jacobson.(2007). Fuzzy Geographically Weighted Clustering, in Proceedings of the 9th International Conference on Geocomputation, no. 1998, pp. 1-7
 #' @references Bezdek, J. C., Ehrlich, R., & Full, W. (1984). FCM: The Fuzzy C-Means Clustering Algorithm. Computers and Geosciences Vol 10, 191-203
+#' @references Rashedi, E., Nezamabadi-pour, H., & S. Saryazdi. (2009). GSA: A Gravitational Search Algorithm. Information Sciences, vol. 179, no. 13, pp. 2232-224
 #'
+#' @import rgeos
 #' @export
 #'
 
@@ -57,7 +81,6 @@ fgwc.gsa<- function(X,population,distance,K=2,m=2,beta=0.5,a=1,b=1,max.iteration
       stop("rgeos needed for this function to work. Please install it.",
            call. = FALSE)
     }
-    library(rgeos)
     centroid <- gCentroid(distance,byid = T)
     map <- distance
     distance <- as.matrix(spDists(centroid, longlat=T))
