@@ -20,6 +20,10 @@ fgwc.gsa(X, population, distance, K = 2, m = 2, beta = 0.5, a = 1,
 
 \item{beta}{proportion of geographically effect (if 0 equal Fuzzy C-Means)}
 
+\item{a}{power for increase population effect}
+
+\item{b}{power for increase distance effect}
+
 \item{max.iteration}{maximum iteration to convergence}
 
 \item{threshold}{threshold of convergence}

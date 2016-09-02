@@ -51,6 +51,10 @@ fgwc<- function(X,population,distance,K=2,m=2,beta=0.5,a=1,b=1,max.iteration=100
   if(is.matrix(distance)){
     distance <- as.matrix(distance)
   }else{
+    if (!requireNamespace("rgeos", quietly = TRUE)) {
+      stop("rgeos needed for this function to work. Please install it.",
+           call. = FALSE)
+    }
     library(rgeos)
     centroid <- gCentroid(distance,byid = T)
     distance <- as.matrix(spDists(centroid, longlat=T))

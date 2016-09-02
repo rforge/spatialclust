@@ -11,6 +11,21 @@
 #' @export
 
 visualize <- function(fgwc){
+  if (!requireNamespace("ggplot2", quietly = TRUE)) {
+    stop("ggplot2 needed for this function to work. Please install it.",
+         call. = FALSE)
+  }
+
+  if (!requireNamespace("sp", quietly = TRUE)) {
+    stop("sp needed for this function to work. Please install it.",
+         call. = FALSE)
+  }
+
+  if (!requireNamespace("maptools", quietly = TRUE)) {
+    stop("maptools needed for this function to work. Please install it.",
+         call. = FALSE)
+  }
+
   library(ggplot2)
   result <- list()
   map <- NULL
@@ -63,6 +78,10 @@ biPlot <- function(PC,clust,rowname, x="PC1", y="PC2") {
 }
 
 clustMap <- function(map,cluster,rowname){
+  if (!requireNamespace("ggplot2", quietly = TRUE)) {
+    stop("ggplot2 needed for this function to work. Please install it.",
+         call. = FALSE)
+  }
   library(sp)
   library(maptools)
   #Map
