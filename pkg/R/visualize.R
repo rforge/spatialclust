@@ -37,6 +37,8 @@
 #' @import ggplot2
 #' @import maptools
 #' @import sp
+#' @importFrom stats prcomp
+#' @importFrom stats sd
 #' @export
 
 visualize <- function(fgwc){
@@ -207,7 +209,7 @@ CreateRadialPlot <- function(plot.data,
                              legend.title="Cluster",
                              legend.text.size=grid.label.size ) {
 
-  axis.no <- x <- y <- NULL
+  axis.no <- x <- y <- text<- NULL
 
   var.names <- colnames(plot.data)[-1]  #'Short version of variable names
   #axis.labels [if supplied] is designed to hold 'long version' of variable names

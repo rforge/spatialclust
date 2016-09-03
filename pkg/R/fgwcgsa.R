@@ -61,6 +61,7 @@
 #' @references Rashedi, E., Nezamabadi-pour, H., & S. Saryazdi. (2009). GSA: A Gravitational Search Algorithm. Information Sciences, vol. 179, no. 13, pp. 2232-224
 #'
 #' @import rgeos
+#' @importFrom stats runif
 #' @export
 #'
 

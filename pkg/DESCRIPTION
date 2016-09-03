@@ -4,7 +4,7 @@ Title: Spatial Clustering using Fuzzy Geographically Weighted Clustering
 Version: 1.1.1
 Author:  Imam Habib Pamungkas and Setia Pramana
 Maintainer: Imam Habib Pamungkas <imamhabibpamungkas@gmail.com>
-Description: Perform Spatial Clustering Analysis using Fuzzy Geographically Weighted Clustering. Provide optimization using Gravitational Search Algorithm
+Description: Perform Spatial Clustering Analysis using Fuzzy Geographically Weighted Clustering. Provide optimization using Gravitational Search Algorithm.
 Depends: R (>= 3.1)
 License: GPL-2
 LazyData: TRUE
